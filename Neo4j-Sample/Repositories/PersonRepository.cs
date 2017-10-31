@@ -34,8 +34,16 @@ namespace Neo4j_Sample.Repositories
             string query = $"MATCH (p {{name:'{name}'}}) RETURN p.name, p.age;";
             using (var session = _driver.Session())
             {
-                var resultRecord = session.Run(query).Single();
-                return new Person { Name = resultRecord[0].ToString(), Age = Convert.ToInt32(resultRecord[1]) };
+                try
+                {
+                    var resultRecord = session.Run(query).Single();
+                    return new Person { Name = resultRecord[0].ToString(), Age = Convert.ToInt32(resultRecord[1]) };
+                }
+                catch
+                {
+
+                }
+                return null;
             }
         }
 

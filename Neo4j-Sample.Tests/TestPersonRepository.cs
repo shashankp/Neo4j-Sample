@@ -19,7 +19,7 @@ namespace Neo4j_Sample.Tests
             {
                 Url = "bolt://127.0.0.1:7687/",
                 UserName = "neo4j",
-                Password = "pwd"
+                Password = "asdf"
             };
         }
 
